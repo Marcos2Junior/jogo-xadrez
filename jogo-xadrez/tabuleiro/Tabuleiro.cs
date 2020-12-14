@@ -33,11 +33,23 @@
             p.posicao = pos;
         }
 
+        public Peca retirarPeca(Posicao posicao)
+        {
+            if(peca(posicao) == null) { return null; }
+
+            Peca aux = peca(posicao);
+            aux.posicao = null;
+            pecas[posicao.linha, posicao.coluna] = null;
+            return aux;
+        }
+
         public bool existePeca(Posicao posicao)
         {
             validarPosicao(posicao);
             return peca(posicao) != null;
         }
+
+
 
         public bool posicaoValida(Posicao posicao)
         {
